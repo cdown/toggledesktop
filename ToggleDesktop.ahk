@@ -41,8 +41,7 @@ desktop_toggle = 1
 
 Control & NumpadMult::
 ; Toggle hiding desktop/taskbar
-If desktop_toggle = 0
-{
+If desktop_toggle = 0 {
 	; If the black covering GUI exists, destroy it
 	Gui,98:Destroy
 	; Show the desktop and taskbar
@@ -51,11 +50,8 @@ If desktop_toggle = 0
 	; Button is used on Windows 7/Vista as a start button class, doesn't have any effect on XP
 	WinShow,ahk_class Button
 	desktop_toggle := !desktop_toggle
-}
-else
-{
-	IfWinExist,%game_title%
-	{
+} else {
+	IfWinExist,%game_title% {
 		; Hide the desktop and taskbar
 		WinHide,Program Manager
 		WinHide,ahk_class Shell_TrayWnd
@@ -70,9 +66,7 @@ else
 		; For some reason WinSet,AlwaysOnTop doesn't work with TF2 but does with other windows
 		; I will implement it here when I find a fix
 		desktop_toggle := !desktop_toggle
-	}
-	else
-	{ 
+	} else { 
 		Gui,97:Destroy
 		Gui,97:Margin,20,20
 		Gui,97:Font
