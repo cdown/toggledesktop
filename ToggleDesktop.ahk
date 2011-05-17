@@ -29,7 +29,7 @@ OnExit,EXIT
 Gosub,TRAYMENU
 
 ; Program version
-_version='1.05'
+_version=1.05
 
 ; The window title you want to keep in the foreground (you can use this with other games by changing this to the window title of the game)
 _game_title=Team Fortress 2
@@ -44,7 +44,8 @@ _desktop_toggle = 1
 
 Control & NumpadMult::
 ; Toggle hiding desktop/taskbar
-If _desktop_toggle = 0 {
+If _desktop_toggle = 0
+{
 	; If the black covering GUI exists, destroy it
 	Gui,98:Destroy
 	; Show the desktop and taskbar
@@ -53,8 +54,11 @@ If _desktop_toggle = 0 {
 	; Button is used on Windows 7/Vista as a start button class, doesn't have any effect on XP
 	WinShow,ahk_class Button
 	_desktop_toggle := !_desktop_toggle
-} else {
-	IfWinExist,%_game_title% {
+}
+else
+{
+	IfWinExist,%_game_title%
+	{
 		; Hide the desktop and taskbar
 		WinHide,Program Manager
 		WinHide,ahk_class Shell_TrayWnd
@@ -68,7 +72,9 @@ If _desktop_toggle = 0 {
 		WinActivate,%_game_title%
 		WinSet,AlwaysOnTop,on,%_game_title%
 		_desktop_toggle := !_desktop_toggle
-	} else { 
+	}
+	else
+	{ 
 		Gui,97:Destroy
 		Gui,97:Margin,20,20
 		Gui,97:Font
