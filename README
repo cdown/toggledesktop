@@ -1,11 +1,10 @@
-I wrote this a while ago when I was learning AutoHotkey (not a great language, but pretty good for simple desktop tasks), did a few tweaks just now and should be ok for general release.
+ABOUT
 
-To explain what it does, take a look at this screenshot: http://etf2l.org/wp-content/uploads/2010/12/xr_rej_obscure_gc.jpg
+Toggle desktop/taskbar visibility if application is running
 
-That screenshot was taken using -windowed -noborder at 1920x960, or a 2:1 ratio. By using a very high horizontal resolution relative to your vertical resolution, you can attain high FOV values even with fov_desired set to 90 (TF2 automatically compensates fov_desired for .widescreen. resolutions up to and including a ratio of 2:1). This is useful as any class, but it is especially useful as medic.
+COPYRIGHT
 
-When I started using this resolution, one of the main caveats was that a lot of my desktop was showing (my desktop resolution is 1920x1200), icons were flashing and it was generally quite distracting and detracted from the game. Since I was learning AutoHotkey for fun at the time, I decided I.d try to whip up something that would blank the desktop/taskbar and make it so that it had a sort of 'widescreen movie' feel to it (black around the image), as such ToggleDesktop was created.
+Copyright 2011 Chris Down <christopher.down@iofc.org>. All rights reserved.
 
-To use it, run ToggleDesktop, launch TF2 in windowed mode in a resolution that is smaller than your desktop resolution, and then press CTRL + NUM*. You should see the effect immediately (although the screen may go fully black for a second or two if TF2 is pending a redraw). To have the desktop/taskbar reappear, simply press the same key combination again.
-
-In case you wish to modify this for use with any other games, I have made the game window title a variable (%game_title%) for easy modification.
+This is free software; see the COPYING file for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

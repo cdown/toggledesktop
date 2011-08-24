@@ -1,26 +1,17 @@
-; --------------------------------
-; github.com/cdown/toggledesktop.git
-; --------------------------------
+; vim: set expandtab ts=4 sw=4 autoindent smartindent:
+
+; git://github.com/cdown/toggledesktop.git
 
 ; toggledesktop
 ; Toggle desktop/taskbar visibility if application is running
 
-; Copyright (c) 2011 Chris Down <cdown.uk@gmail.com>. 
+; Copyright (c) 2011 Chris Down <christopher.down@iofc.org>
+; This is free software under a 2-clause BSD license; see the COPYING file for
+; copying conditions. There is NO warranty; not even for MERCHANTABILITY or
+; FITNESS FOR A PARTICULAR PURPOSE.
 
-; This program is free software: you can redistribute it and/or modify
-; it under the terms of the GNU General Public License as published by
-; the Free Software Foundation, either version 3 of the License, or
-; (at your option) any later version.
-;
-; This program is distributed in the hope that it will be useful,
-; but WITHOUT ANY WARRANTY; without even the implied warranty of
-; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-; GNU General Public License for more details.
-;
-; You should have received a copy of the GNU General Public License
-; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+_program_version=1.06
 
-; Setup
 #SingleInstance,Force
 #NoEnv
 CoordMode,Mouse,Screen
@@ -28,23 +19,15 @@ DetectHiddenWindows,On
 OnExit,EXIT
 Gosub,TRAYMENU
 
-; Program version
-_version=1.05
-
-; The window title you want to keep in the foreground (you can use this with other games by changing this to the window title of the game)
+; The window title you want to monitor
 _game_title=Team Fortress 2
 
-; Desktop and taskbar visible on launch
-WinShow,Program Manager
-WinShow,ahk_class Shell_TrayWnd
-WinShow,ahk_class Button
-
 ; Make first run hide desktop and taskbar
-_desktop_toggle = 1
+_desktop_hide = 1
 
 Control & NumpadMult::
 ; Toggle hiding desktop/taskbar
-If _desktop_toggle = 0
+If _desktop_hide = 0
 {
 	; If the black covering GUI exists, destroy it
 	Gui,98:Destroy
@@ -53,7 +36,7 @@ If _desktop_toggle = 0
 	WinShow,ahk_class Shell_TrayWnd
 	; Button is used on Windows 7/Vista as a start button class, doesn't have any effect on XP
 	WinShow,ahk_class Button
-	_desktop_toggle := !_desktop_toggle
+	_desktop_hide := !_desktop_hide
 }
 else
 {
@@ -71,7 +54,7 @@ else
 		; Bring to front
 		WinActivate,%_game_title%
 		WinSet,AlwaysOnTop,on,%_game_title%
-		_desktop_toggle := !_desktop_toggle
+		_desktop_hide := !_desktop_hide
 	}
 	else
 	{ 
@@ -91,14 +74,14 @@ Menu,Tray,NoStandard
 Menu,Tray,DeleteAll 
 Menu,Tray,Add,&About...,ABOUT
 Menu,Tray,Add,E&xit,EXIT
-Menu,Tray,Tip,ToggleDesktop %_version%
+Menu,Tray,Tip,ToggleDesktop %_program_version%
 Return
 
 ABOUT:
 Gui,99:Destroy
 Gui,99:Margin,20,20
 Gui,99:Font,Bold
-Gui,99:Add,Text,center w180,ToggleDesktop %_version% by Chris
+Gui,99:Add,Text,center w180,ToggleDesktop %_program_version% by Chris
 Gui,99:Font
 Gui,99:Add,Text,center w180 yp+17,http://fakkelbrigade.eu/chris/
 Gui,99:Show,,About
