@@ -6,7 +6,7 @@ OnExit,EXIT
 Gosub,TRAYMENU
 
 desktopHidden = 0
-windowTitle=Team Fortress 2
+windowTitle = Team Fortress 2
 
 Control & NumpadMult::
     If desktopHidden = 1
