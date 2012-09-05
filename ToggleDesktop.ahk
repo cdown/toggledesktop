@@ -60,7 +60,6 @@ Return
 EXIT:
     Gui,97:Destroy
     Gui,98:Destroy
-    Gui,99:Destroy
     WinShow,Program Manager
     WinShow,ahk_class Shell_TrayWnd
     WinShow,ahk_class Button
