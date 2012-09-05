@@ -8,7 +8,7 @@ Gosub,TRAYMENU
 desktopHidden = 0
 windowTitle = Team Fortress 2
 
-Control & NumpadMult::
+^F12::
     If desktopHidden = 1
     {
         Gui,98:Destroy
